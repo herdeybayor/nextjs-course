@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/robofriends/static/css/main.a07aa725.css",
-    "main.js": "/robofriends/static/js/main.723167e5.js",
-    "static/js/787.32032a02.chunk.js": "/robofriends/static/js/787.32032a02.chunk.js",
-    "index.html": "/robofriends/index.html",
-    "main.a07aa725.css.map": "/robofriends/static/css/main.a07aa725.css.map",
-    "main.723167e5.js.map": "/robofriends/static/js/main.723167e5.js.map",
-    "787.32032a02.chunk.js.map": "/robofriends/static/js/787.32032a02.chunk.js.map"
+    "main.css": "/nextjs-course/static/css/main.a07aa725.css",
+    "main.js": "/nextjs-course/static/js/main.556582d1.js",
+    "static/js/787.32032a02.chunk.js": "/nextjs-course/static/js/787.32032a02.chunk.js",
+    "index.html": "/nextjs-course/index.html",
+    "main.a07aa725.css.map": "/nextjs-course/static/css/main.a07aa725.css.map",
+    "main.556582d1.js.map": "/nextjs-course/static/js/main.556582d1.js.map",
+    "787.32032a02.chunk.js.map": "/nextjs-course/static/js/787.32032a02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a07aa725.css",
-    "static/js/main.723167e5.js"
+    "static/js/main.556582d1.js"
   ]
 }
