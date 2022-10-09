@@ -5,9 +5,6 @@ interface Props {
 }
 
 function CardList({ robots }: Props) {
-    if (true) {
-        throw new Error("Noooooooooooooooo!");
-    }
     return (
         <>
             {robots.map(({ id, name, username, email }) => (
