@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { CardList, Scroll, SearchBox } from "../components";
+import { CardList, Scroll, SearchBox, ErrorBoundary } from "../components";
 import "./App.css";
 
 interface State {
@@ -45,7 +45,9 @@ class App extends React.Component<{}, State> {
                     <h1>Loading</h1>
                 ) : (
                     <Scroll>
-                        <CardList robots={filteredRobots} />
+                        <ErrorBoundary>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundary>
                     </Scroll>
                 )}
             </div>
