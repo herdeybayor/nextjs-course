@@ -1,0 +1,17 @@
+.footer {
+    background-color: #0070f3;
+    color: #fff;
+    padding: 14px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background-color: #fff;
+        color: #000;
+    }
+}
