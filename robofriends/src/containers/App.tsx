@@ -4,55 +4,46 @@ import axios from "axios";
 import { CardList, Scroll, SearchBox, ErrorBoundary } from "../components";
 import "./App.css";
 
-interface State {
-    robots: IRobot[];
-    searchField: string;
-}
+function App() {
+    const [robots, setRobots] = React.useState<IUser[]>([]);
+    const [searchField, setSearchField] = React.useState("");
 
-class App extends React.Component<{}, State> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            robots: [],
-            searchField: "",
-        };
-    }
-
-    componentDidMount(): void {
+    React.useEffect(() => {
         axios
             .get("https://jsonplaceholder.typicode.com/users")
-            .then((res) => this.setState({ robots: res.data }));
-    }
+            .then((response) => setRobots(response.data));
+    }, []);
 
-    onSearchChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
-        this.setState({ searchField: event.currentTarget.value });
+    const onSearchChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+        setSearchField(event.currentTarget.value);
     };
 
-    render() {
-        const { robots, searchField } = this.state;
-        const filteredRobots = robots.filter((robot) =>
-            robot.name.toLowerCase().includes(searchField.toLowerCase())
-        );
+    const filteredRobots = React.useMemo(
+        () =>
+            robots.filter((robot) =>
+                robot.name.toLowerCase().includes(searchField.toLowerCase())
+            ),
+        [robots, searchField]
+    );
 
-        return (
-            <div className="tc">
-                <h1 className="f1">RoboFriends</h1>
-                <SearchBox
-                    searchField={searchField}
-                    searchChange={this.onSearchChange}
-                />
-                {!robots.length ? (
-                    <h1>Loading</h1>
-                ) : (
-                    <Scroll>
-                        <ErrorBoundary>
-                            <CardList robots={filteredRobots} />
-                        </ErrorBoundary>
-                    </Scroll>
-                )}
-            </div>
-        );
-    }
+    return (
+        <div className="tc">
+            <h1 className="f1">RoboFriends</h1>
+            <SearchBox
+                searchField={searchField}
+                searchChange={onSearchChange}
+            />
+            {!robots.length ? (
+                <h1>Loading</h1>
+            ) : (
+                <Scroll>
+                    <ErrorBoundary>
+                        <CardList robots={filteredRobots} />
+                    </ErrorBoundary>
+                </Scroll>
+            )}
+        </div>
+    );
 }
 
 export default App;
